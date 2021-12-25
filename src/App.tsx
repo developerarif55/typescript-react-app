@@ -1,24 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import AddTodoForm from "./Components/AddTodoForm";
+import TodoList from "./Components/TodoList";
+
+const initialTodos: Todo[] = [
+  {
+    text: "How to use TypeScript",
+    complete: false,
+  },
+  {
+    text: "you will learn TypeScript",
+    complete: true,
+  },
+];
 
 function App() {
+  const [todos, setTodos] = useState(initialTodos);
+
+  // add toggle function
+  const toggleTodo = (selectedTodo: Todo) => {
+    const newTodos = todos.map((todo) => {
+      if (todo === selectedTodo) {
+        return {
+          ...todo,
+          complete: !todo.complete,
+        };
+      }
+      return todo;
+    });
+    setTodos(newTodos);
+  };
+
+  // add todo function
+  const addTodo: AddTodo = (text: string) => {
+    const newTodo = { text, complete: false };
+    setTodos([...todos, newTodo]);
+  };
+  // remove todo
+  const RemoveTodo = (id: any) => {
+    const newTodoList = todos.filter((todo) => todo !== id);
+    setTodos(newTodoList);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="TodoContainer">
+        <TodoList
+          todos={todos}
+          toggleTodo={toggleTodo}
+          RemoveTodo={RemoveTodo}
+        />
+        <AddTodoForm addTodo={addTodo} />
+      </div>
     </div>
   );
 }

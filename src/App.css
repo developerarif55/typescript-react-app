@@ -1,38 +1,148 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.TodoContainer {
+  width: 400px;
+  height: 100vh;
+  background-color: #007a47;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.TodoContainer h1 {
+  color: #fff;
+  font-size: 400;
+  font-family: "Times New Roman", Times, serif;
+}
+.todolist {
+  display: flex;
+  background-color: #32946b;
+  margin: 15px 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.todolist_bt {
+  display: flex;
+  background-color: #007a47;
+  margin: 15px 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 1px solid #888;
+}
+.todolist__active {
+  background-color: #198759;
+}
+
+.todolist span {
+  color: #fff;
+}
+
+.cross {
+  background-color: rgb(196, 26, 26);
   color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -39px;
+  left: 14px;
+  position: relative;
+  font-size: 10px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+/* Hide the browser's default checkbox */
+input {
+  margin: 0 6px;
+ 
+}
+input[type="checkbox"] {
+  cursor: pointer;
+  position: relative;
+}
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: -3px;
+  width: 1.4em;
+  height: 1.4em;
+  border: 2px solid #fff;
+  background: #32946b;
+  border-radius: 0.5em;
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%), 0 0 0 rgb(203 34 237 / 20%);
+  transition: all 0.275s;
+}
+input[type="checkbox"]:checked:after {
+  content: "x";
+  position: absolute;
+  top: 0.4em;
+  left: 0.1em;
+  font-size: 1.375em;
+  color: #fff;
+  line-height: 0;
+  transition: all 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.plus__button {
+  font-size: 20px;
+  color: #fff;
+}
+.submit_button {
+  background-color: #007a47;
+  border: 1px solid #ddd;
+  margin: 0;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+}
+
+.button_input {
+  border: none;
+  outline: none;
+  background-color: #007a47;
+}
+
+input[type="text"] {
+  padding-top: 10px;
+  color: rgb(158, 24, 24);
+  box-sizing: border-box;
+  display: inline;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+::placeholder {
+  color: #999;
+  font-size: 15px;
+  align-items: center;
+}
+
+.my-btn{
+  padding:10px 10px;
+  background-color:rgb(128, 0, 21);
+  border: none;
+  cursor: pointer;
+  border-radius:5px;
 }
